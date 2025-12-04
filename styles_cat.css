@@ -1,0 +1,312 @@
+/* Definições de Cores e Fontes */
+:root {
+  --color-dark-purple: #120A1F; /* Fundo principal */
+  --color-medium-purple: #231238; /* Fundo do corpo */
+  --color-card-bg: #331A56; /* Fundo dos cards */
+  --color-text-light: #E0E0E0;
+  --color-text-muted: #B0B0B0;
+  --color-link-active: #D9A0FF; /* Cor da aba ativa e links de "Explorar" */
+  
+  /* Cores dos ícones dos cards */
+  --color-icon-action: #FF5733; /* Laranja */
+  --color-icon-adventure: #4CAF50; /* Verde */
+  --color-icon-rpg: #9C27B0; /* Roxo Escuro */
+  --color-icon-race: #03A9F4; /* Azul Claro */
+  --color-icon-sports: #FFC107; /* Amarelo */
+  --color-icon-puzzle: #8B45FF; /* Roxo Azulado */
+  
+  --padding-site: 20px;
+  --max-width-container: 1200px;
+}
+
+/* Reset Básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif; /* Usando uma fonte padrão, idealmente usar a fonte real do design */
+  background-color: var(--color-dark-purple);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Container de Largura Centralizada */
+.container {
+  max-width: var(--max-width-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--padding-site);
+  padding-right: var(--padding-site);
+}
+
+/* --- Cabeçalho (Header) --- */
+.site-header {
+  background-color: var(--color-medium-purple);
+  padding: 15px 0;
+  border-bottom: 1px solid #3d2c55; /* Linha sutil abaixo do cabeçalho */
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color-link-active); /* Dando destaque à marca */
+}
+
+.main-nav {
+  display: flex;
+  background-color: #3d2c55; /* Fundo para a barra de navegação principal */
+  border-radius: 8px; /* Cantos arredondados na navegação */
+}
+
+.nav-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  margin: 0 2px; /* Espaçamento entre os links */
+}
+
+.nav-link:hover {
+  background-color: #4a346e;
+}
+
+.nav-link.active {
+  background-color: var(--color-link-active);
+  color: var(--color-dark-purple); /* Texto escuro na aba ativa */
+  font-weight: bold;
+}
+
+/* Ícones de Canto (Carrinho/Perfil - se houver) */
+.header-inner::after {
+  content: ''; /* Exemplo de ícones, substitua por ícones reais (SVG/Font-Icon) */
+  font-size: 1.2em;
+}
+
+/* --- Corpo da Página (Main Content) --- */
+
+main.container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Título da Seção (Categorias) */
+.content-header {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.page-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.1em;
+}
+
+/* --- Grid de Cards (Categorias) --- */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas na imagem */
+  gap: 20px;
+}
+
+.category-card {
+  background-color: var(--color-card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  min-height: 200px;
+  display: flex; /* Para alinhar o ícone e o corpo (embora na imagem pareça que o ícone está dentro do card-body) */
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Estilizando o ícone (substitua o SVG de exemplo com seu ícone real) */
+.card-icon svg {
+  width: 60%;
+  height: 60%;
+  fill: #fff;
+}
+
+/* Cores dos ícones e seus fundos (simulando a cor de fundo do ícone) */
+.card-action .card-icon { background-color: var(--color-icon-action); }
+.card-adventure .card-icon { background-color: var(--color-icon-adventure); }
+.card-rpg .card-icon { background-color: var(--color-icon-rpg); }
+.card-race .card-icon { background-color: var(--color-icon-race); }
+.card-sports .card-icon { background-color: var(--color-icon-sports); }
+.card-puzzle .card-icon { background-color: var(--color-icon-puzzle); }
+
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  color: var(--color-text-muted);
+  margin-bottom: 15px;
+  font-size: 0.95em;
+}
+
+.card-count {
+  display: block;
+  font-size: 0.9em;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
+}
+
+.card-link {
+  color: var(--color-link-active);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+  display: block; /* Para ocupar toda a largura e ficar na linha de baixo */
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Rodapé (Footer Completo) --- */
+.site-footer {
+  background-color: var(--color-dark-purple); /* Mais escuro que o cabeçalho */
+  border-top: 1px solid #3d2c55;
+  padding-top: 40px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Proporção conforme a imagem */
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+.footer-block {
+    padding-right: 20px;
+}
+
+.footer-block h4 {
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-block ul li a, .footer-block p {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.footer-block ul li a:hover {
+    color: var(--color-link-active);
+}
+
+/* Bloco da Marca no Rodapé */
+.footer-brand .brand {
+    font-size: 1.5em;
+    color: var(--color-link-active);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-brand .tagline {
+    margin-bottom: 15px;
+}
+
+.footer-brand .copyright {
+    font-size: 0.8em;
+}
+
+/* Bloco Redes Sociais */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: var(--color-text-muted);
+    font-size: 1.4em;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-link-active);
+}
+
+.contact-email {
+    display: flex;
+    align-items: center;
+}
+
+/* Linha de Copyright no final */
+.copyright-bottom {
+    border-top: 1px solid #3d2c55;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: var(--color-text-muted);
+    grid-column: 1 / -1; /* Ocupa todas as colunas no grid */
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .cards-grid.games-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr; /* 2 colunas no rodapé em telas médias */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 50px var(--padding-site);
+  }
+  .hero h1 {
+    font-size: 2em;
+  }
+  .cards-grid.games-grid {
+    grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+  }
+  .footer-inner {
+    grid-template-columns: 1fr; /* 1 coluna no rodapé em telas pequenas */
+  }
+}
+

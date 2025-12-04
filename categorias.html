@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogos - CeuGames</title>
+
+  <style>
+    :root {
+      --color-dark-purple: #120A1F;
+      --color-medium-purple: #231238;
+      --color-card-bg: #331A56;
+      --color-text-light: #E0E0E0;
+      --color-text-muted: #B0B0B0;
+      --color-accent: #D9A0FF;
+      --max-width-container: 1200px;
+      --padding-site: 20px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: sans-serif;
+      background: var(--color-dark-purple);
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--max-width-container);
+      margin: auto;
+      padding: var(--padding-site);
+    }
+
+    .site-header {
+      background: var(--color-medium-purple);
+      padding: 15px 0;
+      border-bottom: 1px solid #3d2c55;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      color: var(--color-accent);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .main-nav {
+      display: flex;
+      background: #3d2c55;
+      padding: 5px;
+      border-radius: 8px;
+    }
+    .nav-link {
+      color: var(--color-text-light);
+      text-decoration: none;
+      padding: 10px 18px;
+      margin: 0 3px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .nav-link:hover {
+      background: #4a346e;
+    }
+    .nav-link.active {
+      background: var(--color-accent);
+      color: var(--color-dark-purple);
+      font-weight: bold;
+    }
+
+    .page-title {
+      font-size: 2.4em;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .page-subtitle {
+      color: var(--color-text-muted);
+      margin-bottom: 25px;
+    }
+
+    .filter-section {
+      margin-bottom: 35px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .filter-btn {
+      background: #3d2c55;
+      border: none;
+      padding: 10px 22px;
+      color: var(--color-text-light);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95em;
+      transition: 0.25s;
+    }
+    .filter-btn:hover {
+      background: #4a346e;
+    }
+    .filter-btn.active {
+      background: var(--color-accent);
+      color: var(--color-dark-purple);
+      font-weight: bold;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .game-card {
+      background: var(--color-card-bg);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+      transition: 0.25s ease;
+    }
+    .game-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    .game-thumb {
+  width: 100%;
+  height: 140px; /* ou o que você estiver usando */
+  border-radius: 8px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+    .game-title {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .game-category {
+      color: var(--color-text-muted);
+      font-size: 0.85em;
+    }
+
+    .game-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .game-price {
+      color: var(--color-accent);
+      font-weight: bold;
+    }
+    .add-cart-btn {
+      background: var(--color-accent);
+      color: var(--color-dark-purple);
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85em;
+      transition: 0.2s;
+    }
+    .add-cart-btn:hover {
+      background: #c28fe0;
+    }
+
+    @media(max-width:1100px) {
+      .games-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media(max-width:800px) {
+      .games-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media(max-width:550px) {
+      .games-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">CeuGames</div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="categorias.html" class="nav-link active">Categorias</a>
+        <a href="amigos.html" class="nav-link">Amizades</a>
+        <a href="carteira.html" class="nav-link">Carteira</a>
+        <a href="carinho.html" class="nav-link ">🛒</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Jogos Disponíveis</h1>
+    <p class="page-subtitle">Explore nossa coleção e filtre por categoria</p>
+
+    <div class="filter-section">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="acao">Ação</button>
+      <button class="filter-btn" data-filter="aventura">Aventura</button>
+      <button class="filter-btn" data-filter="rpg">RPG</button>
+      <button class="filter-btn" data-filter="corrida">Corrida</button>
+      <button class="filter-btn" data-filter="esporte">Esportes</button>
+      <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+    </div>
+
+    <section class="games-grid" id="games-container"></section>
+  </main>
+
+  <script>
+    // -------------------------------------------------
+    // ARRAYS DE JOGOS – cada jogo com nome, categoria (minúsculo), preço e imagem (nome do arquivo)
+    const jogos = [
+      { nome:"Battlefield 6", categoria:"acao", preco:"89,90", imagem:"battlefield.png" },
+      { nome:"Bloodlines 2", categoria:"acao", preco:"79,90", imagem:"Bloodlines 2.png" },
+      { nome:"hogwarts Legacy", categoria:"acao", preco:"92,90", imagem:"hogwarts.png" },
+      { nome:"Spider Man", categoria:"acao", preco:"99,90", imagem:"miranha normal.png" },
+      { nome:"Spider Man Miles Morales", categoria:"acao", preco:"99,90", imagem:"miranha.png" },
+      { nome:"Need For Speed", categoria:"acao", preco:"85,90", imagem:"needforspeed.png" },
+      { nome:"Ninja Gaiden 4", categoria:"acao", preco:"89,90", imagem:"ninja.png" },
+      { nome:"Split Fiction", categoria:"acao", preco:"79,90", imagem:"split.png" },
+      { nome:"The Witcher", categoria:"acao", preco:"94,90", imagem:"thewitcher.png" },
+      { nome:"Uncharted", categoria:"acao", preco:"99,90", imagem:"uncharted.png" },
+      { nome:"Wutherting", categoria:"acao", preco:"88,90", imagem:"wuthering.png" },
+      { nome:"RoboGal", categoria:"acao", preco:"97,90", imagem:"roboGal.png" },
+
+      { nome:"Batman", categoria:"aventura", preco:"59,90", imagem:"batman.png" },
+      { nome:"Dark Souls Remastered", categoria:"aventura", preco:"69,90", imagem:"dark souls rm.png" },
+      { nome:"Dark Souls 3", categoria:"aventura", preco:"54,90", imagem:"dark souls.png" },
+      { nome:"Destiny Insurgentes", categoria:"aventura", preco:"49,90", imagem:"destiny.png" },
+      { nome:"Farcry 4", categoria:"aventura", preco:"59,90", imagem:"farcry.png" },
+      { nome:"Jedi Survivor", categoria:"aventura", preco:"55,90", imagem:"jedi.png" },
+      { nome:"Core Keeper", categoria:"aventura", preco:"60,90", imagem:"jogo ai.png" },
+      { nome:"Throne Libert", categoria:"aventura", preco:"62,90", imagem:"libert.png" },
+      { nome:"Lost Ark", categoria:"aventura", preco:"68,90", imagem:"lostark.png" },
+      { nome:"Mount Blade", categoria:"aventura", preco:"70,90", imagem:"mount.png" },
+      { nome:"SIlent Hill", categoria:"aventura", preco:"65,90", imagem:"silent.png" },
+      { nome:"Watch dogs 2", categoria:"aventura", preco:"69,90", imagem:"watch.png" },
+
+      { nome:"fable", categoria:"rpg", preco:"129,90", imagem:"24162-min-fable-capa-1.webp" },
+      { nome:"gothic 1 remake", categoria:"rpg", preco:"139,90", imagem:"24661-min-gothic-1-remake-capa-1.webp" },
+      { nome:"tribe nine", categoria:"rpg", preco:"149,90", imagem:"24918-min-tribe-nine-capa-1.webp" },
+      { nome:"threads of time", categoria:"rpg", preco:"159,90", imagem:"25074-min-threads-of-time-capa-1.webp" },
+      { nome:"sunderfolk", categoria:"rpg", preco:"149,90", imagem:"25414-min-sunderfolk-capa-1.webp" },
+      { nome:"ecos da mata", categoria:"rpg", preco:"139,90", imagem:"27762-min-ecos-da-mata-capa-1.webp" },
+      { nome:"mortal shell 2", categoria:"rpg", preco:"129,90", imagem:"28103-min-mortal-shell-2-capa-1.webp" },
+      { nome:"code vein", categoria:"rpg", preco:"159,90", imagem:"28104-min-code-vein-ii-capa-1.webp" },
+      { nome:"the seven deadly sins origin", categoria:"rpg", preco:"149,90", imagem:"28111-min-the-seven-deadly-sins-origin-capa-1.webp" },
+      { nome:"Knight's Journey", categoria:"rpg", preco:"139,90", imagem:"28122-min-persona-4-revival-capa-1.webp" },
+      { nome:"Dark Realms", categoria:"rpg", preco:"159,90", imagem:"28128-min-beast-of-reincarnation-capa-1.webp" },
+      { nome:"RPG Master", categoria:"rpg", preco:"149,90", imagem:"28307-min-kriegsfront-tactics-capa-1.webp" },
+
+      { nome:"Over Jump Rally", categoria:"corrida", preco:"99,90", imagem:"20373-min-over-jump-rally-capa-1.webp" },
+      { nome:"Stock Car Usa", categoria:"corrida", preco:"89,90", imagem:"21446-min-stock-car-usa-capa-1.webp" },
+      { nome:"Tokyo Xtreme Racer", categoria:"corrida", preco:"79,90", imagem:"24922-min-tokyo-xtreme-racer-capa-1.webp" },
+      { nome:"sonic racing crossworlds", categoria:"corrida", preco:"89,90", imagem:"27049-min-sonic-racing-crossworlds-capa-1.webp" },
+      { nome:"f1 25", categoria:"corrida", preco:"109,90", imagem:"27340-min-f1-25-capa-1.webp" },
+      { nome:"project motor racing", categoria:"corrida", preco:"95,90", imagem:"27561-min-project-motor-racing-capa-1.webp" },
+      { nome:"formula legends", categoria:"corrida", preco:"99,90", imagem:"27565-min-formula-legends-capa-1.webp" },
+      { nome:"wreckreation", categoria:"corrida", preco:"88,90", imagem:"28732-min-wreckreation-capa-1.webp" },
+      { nome:"forza horizon 6", categoria:"corrida", preco:"109,90", imagem:"29469-min-forza-horizon-6-capa-1.webp" },
+      { nome:"nascar 25", categoria:"corrida", preco:"92,90", imagem:"29726-min-nascar-25-capa-1.webp" },
+      { nome:"formula 2.5", categoria:"corrida", preco:"115,90", imagem:"30119-min-formula-25-capa-1.webp" },
+      { nome:"stunt derby", categoria:"corrida", preco:"105,90", imagem:"stunt.webp" },
+
+      { nome:"Futebol Pro", categoria:"esporte", preco:"49,90", imagem:"1.webp" },
+      { nome:"Basket Pro", categoria:"esporte", preco:"59,90", imagem:"2.webp" },
+      { nome:"Soccer League", categoria:"esporte", preco:"59,90", imagem:"3.webp" },
+      { nome:"Tennis Pro", categoria:"esporte", preco:"39,90", imagem:"4.webp" },
+      { nome:"Soccer Stars", categoria:"esporte", preco:"59,90", imagem:"5.webp" },
+      { nome:"Golf Master", categoria:"esporte", preco:"45,90", imagem:"6.webp" },
+      { nome:"Volleyball Pro", categoria:"esporte", preco:"49,90", imagem:"7.webp" },
+      { nome:"Hockey League", categoria:"esporte", preco:"55,90", imagem:"8.webp" },
+      { nome:"Futbol Legends", categoria:"esporte", preco:"59,90", imagem:"9.webp" },
+      { nome:"Basketball Stars", categoria:"esporte", preco:"62,90", imagem:"10.webp" },
+      { nome:"Tennis Legends", categoria:"esporte", preco:"esporte", imagem:"11.webp" },
+      { nome:"Ultimate Soccer", categoria:"esporte", preco:"69,90", imagem:"12.webp" },
+
+      { nome:"Brain Puzzle", categoria:"puzzle", preco:"19,90", imagem:"1.webp" },
+      { nome:"Logic Mania", categoria:"puzzle", preco:"24,90", imagem:"2.webp" },
+      { nome:"Puzzle Master", categoria:"puzzle", preco:"14,90", imagem:"3.webp" },
+      { nome:"Puzzle Land", categoria:"puzzle", preco:"21,90", imagem:"4.webp" },
+      { nome:"Puzzle Planet", categoria:"puzzle", preco:"14,90", imagem:"5.webp" },
+      { nome:"Mind Challenge", categoria:"puzzle", preco:"19,90", imagem:"6.webp" },
+      { nome:"Puzzle King", categoria:"puzzle", preco:"22,90", imagem:"7.webp" },
+      { nome:"Brain Teaser", categoria:"puzzle", preco:"20,90", imagem:"8.webp" },
+      { nome:"Logic Planet", categoria:"puzzle", preco:"18,90", imagem:"9.webp" },
+      { nome:"Puzzle Genius", categoria:"puzzle", preco:"21,90", imagem:"10.webp" }
+    ];
+
+    const container = document.getElementById("games-container");
+    jogos.forEach(jogo => {
+      const card = `
+        <div class="game-card" data-category="${jogo.categoria}">
+          <div class="game-thumb"
+               style="background-image: url('assets/categorias/${jogo.categoria}/${jogo.imagem}');">
+          </div>
+          <div class="game-title">${jogo.nome}</div>
+          <div class="game-category">${jogo.categoria}</div>
+          <div class="game-footer">
+            <span class="game-price">R$ ${jogo.preco}</span>
+            <button class="add-cart-btn" href="carinho.html">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      `;
+      container.innerHTML += card;
+    });
+
+    // filtro de categorias
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const category = btn.dataset.filter;
+        document.querySelectorAll(".game-card").forEach(card => {
+          card.style.display = (category === "all" || card.dataset.category === category)
+            ? "block" : "none";
+        });
+      });
+    });
+  </script>
+  <script src="scripts/script_jogos.js"></script>
+</body>
+</html>

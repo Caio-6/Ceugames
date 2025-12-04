@@ -1,0 +1,278 @@
+:root {
+    --color-dark-purple: #120A1F; /* Fundo principal */
+    --color-medium-purple: #231238; /* Fundo dos cards/formulário */
+    --color-card-bg: #331A56; /* Fundo do input */
+    --color-text-light: #E0E0E0;
+    --color-text-muted: #B0B0B0;
+    --color-link-active: #D9A0FF; /* Cor de destaque (Título, Botão) */
+    --max-width-form: 600px; /* Largura máxima para o formulário */
+    --padding-site: 20px;
+}
+
+/*/* --- Estilos Globais e de Cabeçalho (Reutilizados) --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color-dark-purple);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--padding-site);
+  padding-right: var(--padding-site);
+}
+
+.site-header {
+  background-color: var(--color-medium-purple);
+  padding: 15px 0;
+  border-bottom: 1px solid #3d2c55;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color-link-active);
+}
+
+.main-nav {
+  display: flex;
+  background-color: #3d2c55;
+  border-radius: 8px;
+}
+
+.nav-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  margin: 0 2px;
+}
+
+.nav-link.active {
+  background-color: var(--color-link-active);
+  color: var(--color-dark-purple);
+  font-weight: bold;
+}
+
+/* Adicionando ícones do carrinho e perfil no header (topo direito) */
+.header-inner::after {
+  content: ''; /* Ícones no topo, substitua por ícones reais */
+  font-size: 1.2em;
+  color: var(--color-text-light);
+}
+
+/* Estilo para o conteúdo principal (H1, P, Form) para centralizar */
+body > h1, 
+body > p:not(.tagline):not(.copyright):not(.contact-email),
+body > form {
+    max-width: var(--max-width-form);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--padding-site);
+    padding-right: var(--padding-site);
+}
+
+/* Título */
+h1 {
+    font-size: 2.5em;
+    color: var(--color-link-active);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Parágrafo de introdução */
+body > p:first-of-type {
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- 2. Estilos do Formulário --- */
+form {
+    background-color: var(--color-medium-purple);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 50px;
+    flex-grow: 1; /* Permite que o conteúdo se expanda e empurre o footer */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: var(--color-text-light);
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid var(--color-card-bg);
+    border-radius: 6px;
+    background-color: var(--color-card-bg); /* Roxo um pouco mais claro para o input */
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--color-link-active);
+    outline: none;
+}
+
+/* Botão de Envio (Estilo Principal) */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-link-active);
+    color: var(--color-dark-purple);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #f0c3ff; /* Cor mais clara no hover */
+}
+
+
+/* --- 3. Estilos do Rodapé (Coerência visual) --- */
+
+.site-footer {
+  background-color: var(--color-dark-purple); /* Mais escuro que o cabeçalho */
+  border-top: 1px solid #3d2c55;
+  padding-top: 40px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Proporção conforme a imagem */
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+.footer-block {
+    padding-right: 20px;
+}
+
+.footer-block h4 {
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-block ul li a, .footer-block p {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.footer-block ul li a:hover {
+    color: var(--color-link-active);
+}
+
+/* Bloco da Marca no Rodapé */
+.footer-brand .brand {
+    font-size: 1.5em;
+    color: var(--color-link-active);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-brand .tagline {
+    margin-bottom: 15px;
+}
+
+.footer-brand .copyright {
+    font-size: 0.8em;
+}
+
+/* Bloco Redes Sociais */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: var(--color-text-muted);
+    font-size: 1.4em;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-link-active);
+}
+
+.contact-email {
+    display: flex;
+    align-items: center;
+}
+
+/* Linha de Copyright no final */
+.copyright-bottom {
+    border-top: 1px solid #3d2c55;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: var(--color-text-muted);
+    grid-column: 1 / -1; /* Ocupa todas as colunas no grid */
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .cards-grid.games-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr; /* 2 colunas no rodapé em telas médias */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 50px var(--padding-site);
+  }
+  .hero h1 {
+    font-size: 2em;
+  }
+  .cards-grid.games-grid {
+    grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+  }
+  .footer-inner {
+    grid-template-columns: 1fr; /* 1 coluna no rodapé em telas pequenas */
+  }
+}

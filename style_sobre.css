@@ -1,0 +1,228 @@
+:root {
+    --color-dark-purple: #120A1F;
+    --color-darkest-purple: #0C0714;
+    --color-medium-purple: #231238;
+    --color-card-bg: #331A56;
+    --color-text-light: #E0E0E0;
+    --color-text-muted: #B0B0B0;
+    --color-link-active: #D9A0FF;
+    --max-width-content: 800px;
+    --padding-site: 20px;
+}
+
+/* --- 1. ESTILOS GERAIS --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color-dark-purple);
+  color: var(--color-text-light);
+  line-height: 1.7; /* Aumentei um pouco para melhor legibilidade */
+  padding-top: 40px; /* Garante que o conteúdo não comece no topo */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--padding-site);
+  flex-grow: 1;
+  text-align: center; 
+}
+
+.site-header {
+  background-color: var(--color-medium-purple);
+  padding: 15px 0;
+  border-bottom: 1px solid #3d2c55;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color-link-active);
+}
+
+.main-nav {
+  display: flex;
+  background-color: #3d2c55;
+  border-radius: 8px;
+}
+
+.nav-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  margin: 0 2px;
+}
+
+.nav-link.active {
+  background-color: var(--color-link-active);
+  color: var(--color-dark-purple);
+  font-weight: bold;
+}
+
+/* Adicionando ícones do carrinho e perfil no header (topo direito) */
+.header-inner::after {
+  content: ''; /* Ícones no topo, substitua por ícones reais */
+  font-size: 1.2em;
+  color: var(--color-text-light);
+}
+
+/* Conteúdo principal */
+.content-wrapper {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    padding: 0 var(--padding-site);
+    flex-grow: 1;
+}
+
+h1 {
+    font-size: 3em;
+    color: var(--color-link-active);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Títulos Secundários */
+h2 {
+    font-size: 1.8em;
+    color: var(--color-text-light);
+    margin-top: 45px;
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-link-active);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+p {
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+    text-align: center; /* ALINHAMENTO AO CENTRO para replicar a imagem */
+}
+
+/* --- 2. RODAPÉ --- */
+.site-footer {
+    margin-top: auto;
+    background-color: var(--color-darkest-purple);
+    border-top: 1px solid #3d2c55;
+    padding-top: 40px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--padding-site);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.footer-block {
+    padding-right: 20px;
+}
+
+.footer-block h4 {
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-block ul li a,
+.footer-block p {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.footer-block ul li a:hover {
+    color: var(--color-link-active);
+}
+
+/* Marca do rodapé */
+.footer-brand .brand {
+    font-size: 1.5em;
+    color: var(--color-link-active);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-brand .tagline {
+    margin-bottom: 15px;
+}
+
+.footer-brand .copyright {
+    font-size: 0.8em;
+}
+
+/* Ícones sociais */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: var(--color-text-muted);
+    font-size: 1.4em;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-link-active);
+}
+
+/* Linha final */
+.copyright-bottom {
+    border-top: 1px solid #3d2c55;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: var(--color-text-muted);
+    grid-column: 1 / -1;
+    margin-top: 20px;
+}
+
+/* --- 3. RESPONSIVIDADE DO FOOTER --- */
+@media (max-width: 900px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+}

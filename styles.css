@@ -1,0 +1,376 @@
+/* Definições de Cores e Fontes (Consolidadas) */
+:root {
+  --color-dark-purple: #1C1226; /* Fundo principal escuro do corpo e rodapé */
+  --color-medium-purple: #231238; /* Fundo do cabeçalho */
+  --color-card-bg: #331A56; /* Fundo dos cards secundários */
+  --color-text-light: #E0E0E0;
+  --color-text-muted: #B0B0B0;
+  --color-link-active: #D9A0FF; /* Cor da aba ativa e links/preços */
+  
+  /* Cores específicas da Home */
+  --color-hero-bg: linear-gradient(135deg, #4B0082, #6A5ACD); /* Gradiente Roxo/Azul para o Banner */
+  --color-primary-button: #D9A0FF; /* Cor do botão principal (Explorar Jogos) */
+  --color-ghost-button-border: rgba(255, 255, 255, 0.4);
+  --color-overlay-tag: #8A2BE2; /* Cor de fundo para as tags de gênero nos cards */
+  
+  --padding-site: 20px;
+  --max-width-container: 1200px;
+}
+
+/* --- Estilos Globais e de Cabeçalho (Reutilizados) --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color-dark-purple);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--padding-site);
+  padding-right: var(--padding-site);
+}
+
+.site-header {
+  background-color: var(--color-medium-purple);
+  padding: 15px 0;
+  border-bottom: 1px solid #3d2c55;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color-link-active);
+}
+
+.main-nav {
+  display: flex;
+  background-color: #3d2c55;
+  border-radius: 8px;
+}
+
+.nav-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  margin: 0 2px;
+}
+
+.nav-link.active {
+  background-color: var(--color-link-active);
+  color: var(--color-dark-purple);
+  font-weight: bold;
+}
+
+/* Adicionando ícones do carrinho e perfil no header (topo direito) */
+.header-inner::after {
+  content: ''; /* Ícones no topo, substitua por ícones reais */
+  font-size: 1.2em;
+  color: var(--color-text-light);
+}
+
+/* --- Seção Hero (Banner Principal) --- */
+.hero {
+  background: var(--color-hero-bg);
+  padding: 80px var(--padding-site);
+  margin: 0 calc(-1 * var(--padding-site)); /* Extende a cor de fundo até as bordas */
+  border-radius: 0 0 15px 15px;
+  color: var(--color-text-light);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+/* Efeito sutil de background na imagem do Figma */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%23FFFFFF" stroke-opacity="0.1" stroke-width="2"/></svg>');
+    opacity: 0.8;
+    background-size: 300px;
+    pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  max-width: 600px;
+}
+
+.hero .lead {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.btn.primary {
+  background-color: var(--color-primary-button);
+  color: var(--color-dark-purple);
+  border: none;
+}
+
+.btn.ghost {
+  background: none;
+  color: var(--color-text-light);
+  border: 1px solid var(--color-ghost-button-border);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* --- Seção de Jogos em Destaque --- */
+.featured-games-section {
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.section-header-games {
+    margin-bottom: 30px;
+}
+
+.section-header-games h2 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.section-header-games p {
+    color: var(--color-text-muted);
+}
+
+.cards-grid.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 30px 20px;
+}
+
+/* Estilo do Card de Jogo */
+.game-card {
+    background-color: var(--color-medium-purple);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-media {
+    width: 100%;
+    height: 180px; /* Altura da imagem de capa */
+    background-color: #555; /* Cor de placeholder */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Tags de Gênero (canto superior direito) */
+.game-genre-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-overlay-tag);
+    color: var(--color-text-light);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card-body-game {
+    padding: 15px;
+}
+
+.card-title-game {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.card-rating {
+    font-size: 0.8em;
+    color: gold; /* Cor das estrelas */
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.card-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-link-active);
+}
+
+.btn-add-cart {
+    background-color: var(--color-primary-button);
+    color: var(--color-dark-purple);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-add-cart:hover {
+    background-color: #f0c3ff;
+}
+
+
+/* --- Rodapé (Footer Completo) --- */
+.site-footer {
+  background-color: var(--color-dark-purple); /* Mais escuro que o cabeçalho */
+  border-top: 1px solid #3d2c55;
+  padding-top: 40px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Proporção conforme a imagem */
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+.footer-block {
+    padding-right: 20px;
+}
+
+.footer-block h4 {
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-block ul li a, .footer-block p {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.footer-block ul li a:hover {
+    color: var(--color-link-active);
+}
+
+/* Bloco da Marca no Rodapé */
+.footer-brand .brand {
+    font-size: 1.5em;
+    color: var(--color-link-active);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-brand .tagline {
+    margin-bottom: 15px;
+}
+
+.footer-brand .copyright {
+    font-size: 0.8em;
+}
+
+/* Bloco Redes Sociais */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: var(--color-text-muted);
+    font-size: 1.4em;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-link-active);
+}
+
+.contact-email {
+    display: flex;
+    align-items: center;
+}
+
+/* Linha de Copyright no final */
+.copyright-bottom {
+    border-top: 1px solid #3d2c55;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: var(--color-text-muted);
+    grid-column: 1 / -1; /* Ocupa todas as colunas no grid */
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .cards-grid.games-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr; /* 2 colunas no rodapé em telas médias */
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 50px var(--padding-site);
+  }
+  .hero h1 {
+    font-size: 2em;
+  }
+  .cards-grid.games-grid {
+    grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
+  }
+  .footer-inner {
+    grid-template-columns: 1fr; /* 1 coluna no rodapé em telas pequenas */
+  }
+}

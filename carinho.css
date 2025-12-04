@@ -1,0 +1,217 @@
+/* Definições de Cores e Fontes (Consolidadas) */
+:root {
+    --color-dark-purple: #1C1226; /* Fundo principal escuro do corpo e rodapé */
+    --color-medium-purple: #231238; /* Fundo do cabeçalho */
+    --color-card-bg: #331A56; /* Fundo dos cards secundários */
+    --color-text-light: #E0E0E0;
+    --color-text-muted: #B0B0B0;
+    --color-link-active: #D9A0FF; /* Cor da aba ativa e links/preços */
+    --color-primary-button: #D9A0FF; /* Cor do botão principal */
+    
+    --padding-site: 20px;
+    --max-width-container: 1200px;
+  }
+  
+  /* --- Estilos Globais e de Cabeçalho (Reutilizados) --- */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: var(--color-dark-purple);
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: var(--max-width-container);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--padding-site);
+    padding-right: var(--padding-site);
+  }
+  
+  .site-header {
+    background-color: var(--color-medium-purple);
+    padding: 15px 0;
+    border-bottom: 1px solid #3d2c55;
+  }
+  
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-link-active);
+  }
+  
+  .main-nav {
+    display: flex;
+    background-color: #3d2c55;
+    border-radius: 8px;
+  }
+  
+  .nav-link {
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+    margin: 0 2px;
+  }
+  
+  .nav-link.active {
+    background-color: var(--color-link-active);
+    color: var(--color-dark-purple);
+    font-weight: bold;
+  }
+  
+  /* --- Seção Carrinho --- */
+  .cart {
+    padding: 40px 0;
+  }
+  
+  .cart h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .cart-items {
+    margin-bottom: 40px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .cart-item-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .cart-item-details {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .cart-item-details h3 {
+    font-size: 1.2em;
+    color: var(--color-text-light);
+  }
+  
+  .cart-item-details p {
+    font-size: 1em;
+    color: var(--color-text-muted);
+  }
+  
+  .cart-item-actions {
+    margin-left: 20px;
+  }
+  
+  .btn-remove {
+    background-color: var(--color-primary-button);
+    color: var(--color-dark-purple);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-remove:hover {
+    background-color: #f0c3ff;
+  }
+  
+  .cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cart-summary p {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  
+  .btn-checkout {
+    background-color: var(--color-primary-button);
+    color: var(--color-dark-purple);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-checkout:hover {
+    background-color: #f0c3ff;
+  }
+  
+  /* --- Rodapé (Footer Completo) --- */
+  .site-footer {
+    background-color: var(--color-dark-purple);
+    padding-top: 40px;
+    border-top: 1px solid #3d2c55;
+  }
+  
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 20px;
+  }
+  
+  .footer-block {
+    padding-right: 20px;
+  }
+  
+  .footer-block h4 {
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .footer-block ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-block ul li a, .footer-block p {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .footer-block ul li a:hover {
+    color: var(--color-link-active);
+  }
+  
+  .copyright-bottom {
+    border-top: 1px solid #3d2c55;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: var(--color-text-muted);
+    grid-column: 1 / -1;
+    margin-top: 20px;
+  }
+      

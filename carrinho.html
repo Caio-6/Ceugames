@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrinho - CeuGames</title>
+  <link rel="stylesheet" href="carinho.css" />
+</head>
+<body class="page-carinho">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">CeuGames</div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="categorias.html" class="nav-link">Categorias</a>
+        <a href="amigos.html" class="nav-link">Amizades</a>
+        <a href="carteira.html" class="nav-link">Carteira</a>
+        <a href="carinho.html" class="nav-link active">🛒 Carrinho</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="cart">
+    <div class="container">
+      <h1>Seu Carrinho</h1>
+      <p>Veja os itens que você adicionou ao seu carrinho.</p>
+
+      <!-- Lista de Itens no Carrinho -->
+      <div class="cart-items">
+        <!-- Exemplo de Item no Carrinho -->
+        <div class="cart-item">
+          <div class="cart-item-image">
+            <img src="https://via.placeholder.com/100x100" alt="Jogo Exemplo">
+          </div>
+          <div class="cart-item-details">
+            <h3>Jogo Exemplo</h3>
+            <p id="preco-carrinho">R$ 50,00</p>
+          </div>
+          <div class="cart-item-actions">
+            <button class="btn-remove">Remover</button>
+          </div>
+        </div>
+        <!-- Mais itens podem ser adicionados aqui -->
+      </div>
+
+      <div class="cart-summary">
+        <p id="preco-total"><strong>Total:</strong> R$ 50,00</p>
+        <button class="btn-checkout">Finalizar Compra</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      
+      <div class="footer-block footer-brand">
+          <div class="brand">CeuGames</div>
+          <p class="tagline">Sua loja online de jogos favorita. Explore, jogue e conecte-se com gamers do mundo todo.</p>
+          <p class="copyright">www.ceugames.com</p>
+      </div>
+      
+      <div class="footer-block">
+          <h4>Institucional</h4>
+          <ul>
+              <li><a href="sobre-nos.html">Sobre Nós</a></li>
+              <li><a href="contato.html">Contato</a></li>
+          </ul>
+      </div>
+      
+      <div class="footer-block">
+          <h4>Suporte</h4>
+          <ul>
+              <li><a href="central.html">Central de Ajuda</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+          </ul>
+      </div>
+      
+      <div class="footer-block social-block">
+          <h4>Redes Sociais</h4>
+          <div class="social-icons">
+              <a href="#">📷</a> <a href="#">🐦</a> <a href="#">▶️</a> </div>
+          <p class="contact-email">📧 contato@ceugames.com</p>
+      </div>
+
+      <div class="copyright-bottom">
+           © 2025 CeuGames. Todos os direitos reservados.
+      </div>
+
+    </div>
+  </footer>
+</body>
+<script src="scripts/script_jogos.js"></script>
+</html>
